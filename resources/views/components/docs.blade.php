@@ -35,7 +35,7 @@
                             <td>@{{ format(product.updated_at) }}</td>
                             <td>@{{ product.buying_price }}</td>
                             <td>@{{ product.buying_exchange }}</td>
-                            <td style="font-weight: bolder;">@{{ product.buying_price * currentExchange }}</td>
+                            <td style="font-weight: bolder;color:chocolate;">@{{ product.buying_price * currentExchange }}</td>
                         </tr>
                     </tbody>
                 </table>

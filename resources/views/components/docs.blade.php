@@ -3,7 +3,7 @@
         class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex pt-8 sm:justify-start sm:pt-0" style="align-items: center; justify-content:space-between;">
-                <img src="{{ asset('img/logo.jpeg') }}" alt="CHON" style="width: 150px">
+                <img src="{{ asset('img/logo.jpeg?v=' . env('ASSET_VERSION')) }}" alt="CHON" style="width: 150px">
                 <div>
                     <h1>Güncel Kur</h1>
                     <h2 id="guncel_kur" style="text-align: center;" v-text="currentExchange"></h2>

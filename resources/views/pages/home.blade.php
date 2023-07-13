@@ -20,7 +20,7 @@
     <meta name="theme-name" content="chon" />
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('images/CHON_fav_comp.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/CHON_fav_comp.svg?v=' . env('ASSET_VERSION')) }}">
     @include('style')
 
     <style>

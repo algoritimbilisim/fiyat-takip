@@ -384,20 +384,56 @@
         }
     }
 
-    button {
-        background: linear-gradient(90deg, #80e4e2 0%, #9eb9ef 100%);
+    .button {
         padding: .1rem;
+        border-radius: .5rem;
         height: 2.3rem;
         line-height: 2.3rem;
         font-size: 1.8rem;
-        border-radius: .5rem 0 0 .5rem;
-        width: 5rem;
+        width: 7rem;
         transition: all .5s;
         cursor: pointer;
+        text-align: center;
     }
 
-    button:hover {
+    .button-right {
+        border-radius: .5rem 0 0 .5rem;
+    }
+
+    .button-middle {
+        border-radius: 0;
+    }
+
+    .button-left {
+        border-radius: 0 .5rem .5rem 0;
+    }
+
+    .button-primary {
+        background: linear-gradient(90deg, #80e4e2 0%, #9eb9ef 100%);
+    }
+
+    .button-primary:hover {
         background: linear-gradient(270deg, #80e4e2 0%, #9eb9ef 100%);
+    }
+
+    .button-danger {
+        background: rgba(252, 70, 107, 1);
+        background: linear-gradient(90deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+    }
+
+    .button-danger:hover {
+        background: rgb(63, 94, 251);
+        background: linear-gradient(270deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+    }
+
+    .button-secondary {
+        background: rgb(238, 174, 202);
+        background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    }
+
+    .button-secondary:hover {
+        background: rgba(148, 187, 233, 1);
+        background: linear-gradient(270deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
     }
 </style>
 

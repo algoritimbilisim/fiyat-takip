@@ -6,7 +6,7 @@
                 <img src="{{ asset('img/logo.jpeg') }}" alt="CHON" style="width: 150px">
             </div>
             <div>
-                <span>Güncel Kur: </span><span id="guncel_kur">@{{ currentExchange }}</span>
+                <span>Güncel Kur: </span><span id="guncel_kur" v-text="currentExchange"></span>
             </div>
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg" style="width: fit-content;">
@@ -23,8 +23,9 @@
                             <th>Başlık</th>
                             <th>Alış Zamanı</th>
                             <th>Güncelleme Zamanı</th>
-                            <th>Alış Fiyatı(₺)</th>
+                            <th>Alış Fiyatı<br>($)</th>
                             <th>Alış Kuru</th>
+                            <th>Alış Fiyatı<br>(₺)</th>
                             <th>Satış Fiyatı</th>
                         </tr>
                     </thead>
@@ -34,8 +35,9 @@
                             <td>@{{ format(product.buying_time) }}</td>
                             <td>@{{ format(product.updated_at) }}</td>
                             <td>@{{ product.buying_price }}</td>
-                            <td>@{{ product.buying_exchange }}</td>
-                            <td style="font-weight: bolder;color:chocolate;">@{{ product.buying_price * currentExchange }}</td>
+                            <td>@{{ product.buying_exchange + "$" }}</td>
+                            <td>@{{ product.buying_price * product.buying_exchange + "₺" }}</td>
+                            <td style="font-weight: bolder;color:chocolate;">@{{ (product.buying_price * currentExchange).toFixed(2) + "₺" }}</td>
                         </tr>
                     </tbody>
                 </table>

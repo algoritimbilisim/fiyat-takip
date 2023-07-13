@@ -22,6 +22,12 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/CHON_fav_comp.svg') }}">
     @include('style')
+
+    <style>
+        .table thead th {
+            vertical-align: middle !important;
+        }
+    </style>
 </head>
 
 <body id="top" class="{{ setting('site.theme') }}">
@@ -45,8 +51,8 @@
             },
             mounted() {
                 this.getCurrencyExchange();
-                let products = @php echo json_encode($products, true); @endphp;
-                products.data.forEach(product => {
+                let productsData = @php echo json_encode($products, true); @endphp;
+                productsData.data.forEach(product => {
                     this.products.push({
                         sellingPrice: product.buying_price * 22,
                         ...product
@@ -61,15 +67,9 @@
                         day: 'numeric'
                     };
 
-                    return new Date().toLocaleDateString('tr-TR', options);
+                    return new Date(date).toLocaleDateString('tr-TR', options);
                 },
                 getCurrencyExchange() {
-                    let bugun = new Date().toJSON().slice(0, 10).split('-').reverse().join('-');
-                    let url =
-                        "{{ setting('site.kur-api-url') }}series=TP.DK.USD.S-TP.DK.USD.A&startDate=" +
-                        bugun + "&endDate=" + bugun +
-                        "&type=json&key=IjHsKKulAS";
-
                     fetch("/api/currency-exchange") // API endpoint URL'sini belirtin
                         .then(response => response
                             .json()) // JSON formatında yanıtı almak için response'u parse edin
